@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index -- 留言板</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../公用样式/公用.css">
+    <link rel="stylesheet" href="留言板.css">
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;700;900&family=ZCOOL+XiaoWei&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#A62928',
+                        secondary: '#D4AF37',
+                        tertiary: '#8B4513',
+                        light: '#F5F0E6',
+                        dark: '#2D2320'
+                    },
+                    fontFamily: {
+                        art: ['"Ma Shan Zheng"', 'cursive'],
+                        title: ['"Noto Serif SC"', 'serif'],
+                        body: ['"ZCOOL XiaoWei"', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-light bg-pattern font-body text-dark antialiased">
+    <!-- 导航栏 -->
+    <nav id="main-nav" class="fixed w-full z-50 transition-all duration-300 bg-transparent">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#home" class="flex items-center space-x-2">
+                <i class="fa fa-film text-2xl text-primary"></i>
+                <span class="font-art text-2xl md:text-3xl text-primary">非遗皮影</span>
+            </a>
+
+            <!-- 桌面导航 -->
+            <div class="hidden md:flex space-x-8">
+                <a href="../首页/index.html" class="nav-link text-dark hover:text-primary transition-colors">首页</a>
+                <a href="../详细介绍/历史渊源.html" class="nav-link text-dark hover:text-primary transition-colors">历史渊源</a>
+                <div class="relative group" id="home-dropdown">
+                    <a href="../详细介绍/艺术特色.html" class="nav-link text-dark hover:text-primary transition-colors flex items-center">
+                        皮影双艺 <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                    </a>
+                    <div
+                        class="absolute top-full left-0 mt-2 w-48 bg-white/95 backdrop-blur-sm rounded-lg shadow-lg py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <a href="../详细介绍/艺术特色.html"
+                            class="block px-4 py-2 text-dark hover:bg-primary/10 hover:text-primary transition-colors dropdown-link card-link"
+                        >艺术特色</a>
+                        <a href="../详细介绍/皮影制作.html"
+                            class="block px-4 py-2 text-dark hover:bg-primary/10 hover:text-primary transition-colors dropdown-link card-link"
+                        >皮影制作</a>
+                    </div>
+                </div>
+                <div class="relative group" id="home-dropdown">
+                    <a href="../详细介绍/代表作品.html" class="nav-link text-dark hover:text-primary transition-colors flex items-center">
+                        皮影传承 <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                    </a>
+                    <div
+                        class="absolute top-full left-0 mt-2 w-48 bg-white/95 backdrop-blur-sm rounded-lg shadow-lg py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <a href="../详细介绍/代表作品.html"
+                            class="block px-4 py-2 text-dark hover:bg-primary/10 hover:text-primary transition-colors dropdown-link card-link">代表作品</a>
+                        <a href="../详细介绍/传承人.html"
+                            class="block px-4 py-2 text-dark hover:bg-primary/10 hover:text-primary transition-colors dropdown-link card-link">传承人</a>
+                    </div>
+                </div>
+                <a href="../unity体验/unity体验.html"
+                    class="nav-link text-dark hover:text-primary transition-colors">Unity体验</a>
+                <a href="../知识问答/知识问答.html" class="nav-link text-dark hover:text-primary transition-colors">知识问答</a>
+                <a href="../留言板/留言板.html" class="nav-link text-dark hover:text-primary transition-colors">留言板</a>
+
+            </div>
+
+            <!-- 移动端菜单按钮 -->
+            <button id="menu-toggle" class="md:hidden text-primary text-2xl focus:outline-none">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- 移动端导航菜单 -->
+        <div id="mobile-menu" class="md:hidden hidden bg-light/95 backdrop-blur-sm shadow-lg">
+            <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+                <a href="../首页/index.html"
+                    class="text-dark hover:text-primary py-2 border-b border-gray-200">首页</a>
+                <a href="../详细介绍/历史渊源.html" class="text-dark hover:text-primary py-2 border-b border-gray-200">历史渊源</a>
+                <a href="../详细介绍/艺术特色.html"
+                    class="text-dark hover:text-primary py-2 border-b border-gray-200">艺术特色</a>
+                <a href="../详细介绍/皮影制作.html"
+                    class="text-dark hover:text-primary py-2 border-b border-gray-200">皮影制作</a>
+                <a href="../详细介绍/代表作品.html"
+                    class="text-dark hover:text-primary py-2 border-b border-gray-200">代表作品</a>
+                <a href="../详细介绍/传承人.html"
+                    class="text-dark hover:text-primary py-2 border-b border-gray-200">传承人</a>
+                <a href="../unity体验/unity体验.html"
+                    class="text-dark hover:text-primary py-2 border-b border-gray-200">Unity体验</a>
+                <a href="../知识问答/知识问答.html" class="text-dark hover:text-primary py-2 border-b border-gray-200">知识问答</a>
+                <a href="../留言板/留言板.html" class="text-dark hover:text-primary py-2">留言板</a>
+            </div>
+        </div>
+    </nav>
+<!-- 首页大图 -->
+<div>
+    <div class="relative w-full h-[50vh] md:h-[100vh] overflow-hidden">
+        <img src = "../图片素材/知识问答和留言板背景/留言板大图.jpg" alt="中国皮影戏" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+            <div class="text-center text-white px-4">
+                <h1 class="font-art text-3xl md:text-5xl mb-2">中国皮影戏</h1>
+                <p class="text-lg md:text-xl">传承千年光影艺术，弘扬传统文化精髓</p>
+            </div>
+        </div>
+    </div>
+</div>
+    
+    <!-- 留言板部分 -->
+    <section id="message-board" class="py-20 bg-light relative min-h-screen pt-16">
+        <!-- 背景图容器：层级 z-0，仅作为背景 -->
+        <div class="absolute inset-0 z-0">
+            <img src = "../图片素材/知识问答和留言板背景/留言板.png" alt="皮影戏背景" class="w-full h-full object-cover opacity-50">
+        </div>
+        <div class="section-divider"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <h2 class="font-art text-[clamp(1.8rem,5vw,3rem)] text-primary text-center mb-6">留言板</h2>
+            <p class="text-center text-lg text-dark/70 max-w-3xl mx-auto mb-16">浏览之余，你一定产生了许多想法~赶紧写下来吧！</p>
+            <div class="max-w-4xl mx-auto">
+                <!-- 留言表单 -->
+                <div class="bg-white p-8 rounded-lg shadow-custom mb-12">
+                    <form id="message-form">
+                        <div class="mb-6">
+                            <label for="username" class="block text-dark mb-2 font-title">昵称</label>
+                            <input type="text" id="username" name="username"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary font-body"
+                                required>
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-dark mb-2 font-title">留言内容</label>
+                            <textarea id="message" name="message" rows="5"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary font-body"
+                                required></textarea>
+                        </div>
+                        <button type="submit"
+                            class="px-6 py-3 bg-primary text-light rounded-md hover:bg-primary/90 transition-colors w-full font-title">
+                            提交留言
+                        </button>
+                    </form>
+                </div>
+
+                <!-- 留言展示区 -->
+                <div id="messages-container" class="message-grid">
+                    <!-- 初始示例留言 -->
+                    <div class="message-card">
+                        <h4 class="font-title">文化爱好者</h4>
+                        <p class="font-body">感谢皮影戏传承人们为保护这一古老艺术所做的努力！希望未来能看到更多创新的皮影戏作品，让年轻人也爱上传统文化。</p>
+                        <p class="timestamp font-body">2023年10月15日</p>
+                    </div>
+                    <div class="message-card">
+                        <h4 class="font-title">皮影戏粉丝</h4>
+                        <p class="font-body">皮影戏是中国文化的瑰宝，希望能有更多机会在校园里看到皮影戏表演，让孩子们从小了解并喜爱这一传统艺术形式。</p>
+                        <p class="timestamp font-body">2023年10月12日</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-divider-reverse"></div>
+    </section>
+                  <!-- 页脚 -->
+                  <footer class="bg-dark text-light py-12">
+                    <div class="container mx-auto px-4">
+                        <div class="grid md:grid-cols-4 gap-8">
+                            <div>
+                                <h3 class="font-art text-2xl text-secondary mb-4">湖湘皮影</h3>
+                                <p class="text-light/70 leading-relaxed">
+                                    传承湖湘文化，弘扬皮影艺术，让这项古老的民间艺术在新时代焕发出新的生机。
+                                </p>
+                            </div>
+            
+                            <div>
+                                <h4 class="text-lg text-secondary mb-4">快速链接</h4>
+                                <ul class="space-y-2">
+                                    <li><a href="#home" class="text-light/70 hover:text-secondary transition-colors">首页</a></li>
+                                    <li><a href="#history" class="text-light/70 hover:text-secondary transition-colors">历史渊源</a>
+                                    </li>
+                                    <li><a href="#features" class="text-light/70 hover:text-secondary transition-colors">艺术特色</a>
+                                    </li>
+                                    <li><a href="#craft" class="text-light/70 hover:text-secondary transition-colors">皮影制作</a></li>
+                                    <li><a href="#works" class="text-light/70 hover:text-secondary transition-colors">代表作品</a></li>
+                                    <li><a href="#inheritors" class="text-light/70 hover:text-secondary transition-colors">传承人</a>
+                                    </li>
+                                    <li><a href="#unity" class="text-light/70 hover:text-secondary transition-colors">Unity体验</a>
+                                    </li>
+                                    <li><a href="#quiz" class="text-light/70 hover:text-secondary transition-colors">知识问答</a></li>
+                                    <li><a href="#message-board"
+                                            class="text-light/70 hover:text-secondary transition-colors">留言板</a></li>
+                                </ul>
+                            </div>
+            
+                            <div>
+                                <h4 class="text-lg text-secondary mb-4">相关资源</h4>
+                                <ul class="space-y-2">
+                                    <li><a href="#" class="text-light/70 hover:text-secondary transition-colors">湖南省非物质文化遗产保护中心</a>
+                                    </li>
+                                    <li><a href="#" class="text-light/70 hover:text-secondary transition-colors">湖湘文化研究中心</a></li>
+                                    <li><a href="#" class="text-light/70 hover:text-secondary transition-colors">中国皮影戏网</a></li>
+                                    <li><a href="#" class="text-light/70 hover:text-secondary transition-colors">湖南民间艺术博物馆</a></li>
+                                </ul>
+                            </div>
+            
+                            <div>
+                                <h4 class="text-lg text-secondary mb-4">联系我们</h4>
+                                <ul class="space-y-2">
+                                    <li class="flex items-center">
+                                        <i class="fa fa-map-marker text-secondary mr-3"></i>
+                                        <span class="text-light/70">湖南省长沙市岳麓区</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fa fa-phone text-secondary mr-3"></i>
+                                        <span class="text-light/70">0731-12345678</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fa fa-envelope text-secondary mr-3"></i>
+                                        <span class="text-light/70">info@huxiangpiying.com</span>
+                                    </li>
+                                </ul>
+            
+                                <div class="mt-6 flex space-x-4">
+                                    <a href="#"
+                                        class="w-10 h-10 rounded-full bg-light/10 flex items-center justify-center hover:bg-secondary/80 transition-colors">
+                                        <i class="fa fa-weixin"></i>
+                                    </a>
+                                    <a href="#"
+                                        class="w-10 h-10 rounded-full bg-light/10 flex items-center justify-center hover:bg-secondary/80 transition-colors">
+                                        <i class="fa fa-weibo"></i>
+                                    </a>
+                                    <a href="#"
+                                        class="w-10 h-10 rounded-full bg-light/10 flex items-center justify-center hover:bg-secondary/80 transition-colors">
+                                        <i class="fa fa-instagram"></i>
+                                    </a>
+                                    <a href="#"
+                                        class="w-10 h-10 rounded-full bg-light/10 flex items-center justify-center hover:bg-secondary/80 transition-colors">
+                                        <i class="fa fa-youtube-play"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+            
+                        <div class="border-t border-light/10 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
+                            <p class="text-light/50 text-sm mb-4 md:mb-0">
+                                &copy; 2025 湖湘皮影戏文化网 版权所有
+                            </p>
+                            <div class="flex space-x-6">
+                                <a href="#" class="text-light/50 text-sm hover:text-light/80 transition-colors">隐私政策</a>
+                                <a href="#" class="text-light/50 text-sm hover:text-light/80 transition-colors">使用条款</a>
+                                <a href="#" class="text-light/50 text-sm hover:text-light/80 transition-colors">关于我们</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+               
+        <script src="知识问答.js"></script>
+        <script src="../公用样式/公用.js"></script>
+    
+</body>
+
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index -- 皮影制作</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../公用样式/公用.css">
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;700;900&family=ZCOOL+XiaoWei&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#A62928',
+                        secondary: '#D4AF37',
+                        tertiary: '#8B4513',
+                        light: '#F5F0E6',
+                        dark: '#2D2320'
+                    },
+                    fontFamily: {
+                        art: ['"Ma Shan Zheng"', 'cursive'],
+                        title: ['"Noto Serif SC"', 'serif'],
+                        body: ['"ZCOOL XiaoWei"', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+</head>
+
+<body class="bg-light bg-pattern font-body text-dark antialiased">
+    <!-- 导航栏 -->
+    <nav id="main-nav" class="fixed w-full z-50 transition-all duration-300 bg-transparent">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#home" class="flex items-center space-x-2">
+                <i class="fa fa-film text-2xl text-primary"></i>
+                <span class="font-art text-2xl md:text-3xl text-primary">非遗皮影</span>
+            </a>
+
+            <!-- 桌面导航 -->
+            <div class="hidden md:flex space-x-8">
+                <a href="../首页/index.html" class="nav-link text-dark hover:text-primary transition-colors">首页</a>
+                <a href="../详细介绍/历史渊源.html" class="nav-link text-dark hover:text-primary transition-colors">历史渊源</a>
+                <div class="relative group" id="home-dropdown">
+                    <a href="../详细介绍/艺术特色.html"
+                        class="nav-link text-dark hover:text-primary transition-colors flex items-center">
+                        皮影双艺 <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                    </a>
+                    <div
+                        class="absolute top-full left-0 mt-2 w-48 bg-white/95 backdrop-blur-sm rounded-lg shadow-lg py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <a href="../详细介绍/艺术特色.html"
+                            class="block px-4 py-2 text-dark hover:bg-primary/10 hover:text-primary transition-colors dropdown-link card-link">艺术特色</a>
+                        <a href="../详细介绍/皮影制作.html"
+                            class="block px-4 py-2 text-dark hover:bg-primary/10 hover:text-primary transition-colors dropdown-link card-link">皮影制作</a>
+                    </div>
+                </div>
+                <div class="relative group" id="home-dropdown">
+                    <a href="../详细介绍/代表作品.html"
+                        class="nav-link text-dark hover:text-primary transition-colors flex items-center">
+                        皮影传承 <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                    </a>
+                    <div
+                        class="absolute top-full left-0 mt-2 w-48 bg-white/95 backdrop-blur-sm rounded-lg shadow-lg py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <a href="../详细介绍/代表作品.html"
+                            class="block px-4 py-2 text-dark hover:bg-primary/10 hover:text-primary transition-colors dropdown-link card-link">代表作品</a>
+                        <a href="../详细介绍/传承人.html"
+                            class="block px-4 py-2 text-dark hover:bg-primary/10 hover:text-primary transition-colors dropdown-link card-link">传承人</a>
+                    </div>
+                </div>
+                <a href="../unity体验/unity体验.html"
+                    class="nav-link text-dark hover:text-primary transition-colors">Unity体验</a>
+                <a href="../知识问答/知识问答.html" class="nav-link text-dark hover:text-primary transition-colors">知识问答</a>
+                <a href="../留言板/留言板.html" class="nav-link text-dark hover:text-primary transition-colors">留言板</a>
+
+            </div>
+
+            <!-- 移动端菜单按钮 -->
+            <button id="menu-toggle" class="md:hidden text-primary text-2xl focus:outline-none">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- 移动端导航菜单 -->
+        <div id="mobile-menu" class="md:hidden hidden bg-light/95 backdrop-blur-sm shadow-lg">
+            <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+                <a href="../首页/index.html"
+                    class="text-dark hover:text-primary py-2 border-b border-gray-200">首页</a>
+                <a href="../详细介绍/历史渊源.html" class="text-dark hover:text-primary py-2 border-b border-gray-200">历史渊源</a>
+                <a href="../详细介绍/艺术特色.html" class="text-dark hover:text-primary py-2 border-b border-gray-200">艺术特色</a>
+                <a href="../详细介绍/皮影制作.html" class="text-dark hover:text-primary py-2 border-b border-gray-200">皮影制作</a>
+                <a href="../详细介绍/代表作品.html" class="text-dark hover:text-primary py-2 border-b border-gray-200">代表作品</a>
+                <a href="../详细介绍/传承人.html" class="text-dark hover:text-primary py-2 border-b border-gray-200">传承人</a>
+                <a href="../unity体验/unity体验.html"
+                    class="text-dark hover:text-primary py-2 border-b border-gray-200">Unity体验</a>
+                <a href="../知识问答/知识问答.html" class="text-dark hover:text-primary py-2 border-b border-gray-200">知识问答</a>
+                <a href="../留言板/留言板.html" class="text-dark hover:text-primary py-2">留言板</a>
+            </div>
+        </div>
+    </nav>
+    <!-- 皮影制作 -->
+    <section id="craft" class="py-20 bg-light relative"> <!-- 新增 relative -->
+        <!-- 背景图容器：层级 z-0，仅作为背景 -->
+        <div class="absolute inset-0 z-0">
+            <img src = "../图片素材/第四部分/第四部分背景图.jpg" alt="皮影戏背景" class="w-full h-full object-cover opacity-70">
+        </div>
+        <div class="section-divider"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <h2 class="font-art text-[clamp(1.8rem,5vw,3rem)] text-primary text-center mb-6">皮影制作</h2>
+            <p class="text-center text-lg text-dark/70 max-w-3xl mx-auto mb-16">传统工艺与现代创新</p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- 步骤1 -->
+                <div class="puppet-card bg-white rounded-lg overflow-hidden shadow-custom">
+                    <div class="h-56 overflow-hidden">
+                        <img src = "../图片素材/第四部分/选皮.jpg" alt="选皮"
+                            class="w-full h-full object-cover transition-transform hover:scale-110 duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-title text-xl text-primary mb-2">1. 选皮</h3>
+                        <p class="leading-relaxed">
+                            选择优质的黄牛皮或驴皮，厚度适中，质地均匀。优质的皮料是制作精美皮影的基础，需要经过严格筛选，确保皮料无瑕疵、厚度一致。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 步骤2 -->
+                <div class="puppet-card bg-white rounded-lg overflow-hidden shadow-custom">
+                    <div class="h-56 overflow-hidden">
+                        <img src = "../图片素材/第四部分/制皮.jpg" alt="制皮"
+                            class="w-full h-full object-cover transition-transform hover:scale-110 duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-title text-xl text-primary mb-2">2. 制皮</h3>
+                        <p class="leading-relaxed">
+                            将生皮浸泡、刮去毛肉，然后绷紧晾干。这个过程需要反复进行多次，确保皮料柔软透明，便于后续雕刻和上色。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 步骤3 -->
+                <div class="puppet-card bg-white rounded-lg overflow-hidden shadow-custom">
+                    <div class="h-56 overflow-hidden">
+                        <img src = "../图片素材/第四部分/画稿.jpg" alt="画稿"
+                            class="w-full h-full object-cover transition-transform hover:scale-110 duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-title text-xl text-primary mb-2">3. 画稿</h3>
+                        <p class="leading-relaxed">
+                            在皮料上绘制人物或道具的轮廓。传统皮影画稿需要遵循严格的造型规范，同时也要根据角色性格特点进行艺术创作。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 步骤4 -->
+                <div class="puppet-card bg-white rounded-lg overflow-hidden shadow-custom">
+                    <div class="h-56 overflow-hidden">
+                        <img src = "../图片素材/第四部分/雕刻.jpg" alt="雕刻"
+                            class="w-full h-full object-cover transition-transform hover:scale-110 duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-title text-xl text-primary mb-2">4. 雕刻</h3>
+                        <p class="leading-relaxed">
+                            使用刻刀沿着画好的线条进行雕刻。雕刻是皮影制作中最精细的环节，需要工匠有高超的技艺和极大的耐心，才能雕刻出精美的纹饰。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 步骤5 -->
+                <div class="puppet-card bg-white rounded-lg overflow-hidden shadow-custom">
+                    <div class="h-56 overflow-hidden">
+                        <img src = "../图片素材/第四部分/上色.jpg" alt="上色"
+                            class="w-full h-full object-cover transition-transform hover:scale-110 duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-title text-xl text-primary mb-2">5. 上色</h3>
+                        <p class="leading-relaxed">
+                            使用矿物颜料为皮影上色，色彩鲜艳持久。传统上色工艺讲究色彩搭配和谐，层次分明，能够经受长时间使用而不褪色。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 步骤6 -->
+                <div class="puppet-card bg-white rounded-lg overflow-hidden shadow-custom">
+                    <div class="h-56 overflow-hidden">
+                        <img src = "../图片素材/第四部分/熨平装订.jpg" alt="装订"
+                            class="w-full h-full object-cover transition-transform hover:scale-110 duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-title text-xl text-primary mb-2">6. 装订</h3>
+                        <p class="leading-relaxed">
+                            将各部件用线连接，安装操纵杆。装订时需要确保各关节活动灵活，同时整体结构牢固，能够承受表演时的频繁操作。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 制作体验 -->
+            <div class="mt-20 max-w-5xl mx-auto">
+                <h3 class="font-art text-2xl text-primary text-center mb-10">互动体验：制作你的皮影</h3>
+                <div class="bg-white p-8 rounded-lg shadow-customb ">
+                    <div class="flex flex-col md:flex-row gap-8">
+                        <div class="md:w-1/2">
+                            <p class="mb-6 text-lg leading-relaxed">
+                                在下方画布上，尝试设计你自己的皮影角色。使用铅笔工具绘制轮廓，橡皮工具修改错误，完成后点击保存按钮保存你的作品。
+                            </p>
+                            <div class="mb-6">
+                                <h4 class="font-title text-xl text-primary mb-4">操作指南：</h4>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fa fa-pencil text-secondary mr-2 mt-1"></i>
+                                        <span>铅笔工具：绘制黑色线条</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fa fa-eraser text-secondary mr-2 mt-1"></i>
+                                        <span>橡皮工具：擦除绘制内容</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fa fa-trash text-secondary mr-2 mt-1"></i>
+                                        <span>清除按钮：清空整个画布</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fa fa-save text-secondary mr-2 mt-1"></i>
+                                        <span>保存按钮：保存你的设计</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="bg-light p-4 rounded-lg">
+                                <h4 class="font-title text-lg text-primary mb-2">设计提示：</h4>
+                                <p class="leading-relaxed">
+                                    皮影设计通常采用侧脸轮廓，突出人物特征。尝试设计一个具有湖南地方特色的角色，如渔夫、书生或神话人物。
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="md:w-1/2">
+                            <div class="mb-4 flex flex-wrap gap-2">
+                                <button id="pencil-btn"
+                                    class="tool-btn px-4 py-2 bg-primary text-light rounded-md flex items-center active">
+                                    <i class="fa fa-pencil mr-2"></i> 铅笔
+                                </button>
+                                <button id="eraser-btn"
+                                    class="tool-btn px-4 py-2 bg-gray-200 text-dark rounded-md flex items-center">
+                                    <i class="fa fa-eraser mr-2"></i> 橡皮
+                                </button>
+                                <button id="clear-btn"
+                                    class="tool-btn px-4 py-2 bg-gray-200 text-dark rounded-md flex items-center">
+                                    <i class="fa fa-trash mr-2"></i> 清除
+                                </button>
+                                <button id="save-btn"
+                                    class="tool-btn px-4 py-2 bg-secondary text-light rounded-md flex items-center">
+                                    <i class="fa fa-save mr-2"></i> 保存
+                                </button>
+                            </div>
+
+                            <div class="relative">
+                                <canvas id="drawing-canvas" width="500" height="400"></canvas>
+                                <div id="canvas-placeholder"
+                                    class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                    <p class="text-dark/50 italic">在此区域绘制你的皮影设计</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-divider-reverse"></div>
+    </section>
+
+    <script src="详细介绍.js"></script>
+    <script src="../公用样式/公用.js"></script>
+</body>
+
+</html>

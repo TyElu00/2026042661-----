@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index -- 艺术特色</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../公用样式/公用.css">
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;700;900&family=ZCOOL+XiaoWei&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#A62928',
+                        secondary: '#D4AF37',
+                        tertiary: '#8B4513',
+                        light: '#F5F0E6',
+                        dark: '#2D2320'
+                    },
+                    fontFamily: {
+                        art: ['"Ma Shan Zheng"', 'cursive'],
+                        title: ['"Noto Serif SC"', 'serif'],
+                        body: ['"ZCOOL XiaoWei"', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+</head>
+
+<body class="bg-light bg-pattern font-body text-dark antialiased">
+    <!-- 导航栏 -->
+    <nav id="main-nav" class="fixed w-full z-50 transition-all duration-300 bg-transparent">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#home" class="flex items-center space-x-2">
+                <i class="fa fa-film text-2xl text-primary"></i>
+                <span class="font-art text-2xl md:text-3xl text-primary">非遗皮影</span>
+            </a>
+
+            <!-- 桌面导航 -->
+            <div class="hidden md:flex space-x-8">
+                <a href="../首页/index.html" class="nav-link text-dark hover:text-primary transition-colors">首页</a>
+                <a href="../详细介绍/历史渊源.html" class="nav-link text-dark hover:text-primary transition-colors">历史渊源</a>
+                <div class="relative group" id="home-dropdown">
+                    <a href="../详细介绍/艺术特色.html"
+                        class="nav-link text-dark hover:text-primary transition-colors flex items-center">
+                        皮影双艺 <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                    </a>
+                    <div
+                        class="absolute top-full left-0 mt-2 w-48 bg-white/95 backdrop-blur-sm rounded-lg shadow-lg py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <a href="../详细介绍/艺术特色.html"
+                            class="block px-4 py-2 text-dark hover:bg-primary/10 hover:text-primary transition-colors dropdown-link card-link"
+                            >艺术特色</a>
+                        <a href="../详细介绍/皮影制作.html"
+                            class="block px-4 py-2 text-dark hover:bg-primary/10 hover:text-primary transition-colors dropdown-link card-link"
+                            >皮影制作</a>
+                    </div>
+                </div>
+                <div class="relative group" id="home-dropdown">
+                    <a href="../详细介绍/代表作品.html"
+                        class="nav-link text-dark hover:text-primary transition-colors flex items-center">
+                        皮影传承 <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                    </a>
+                    <div
+                        class="absolute top-full left-0 mt-2 w-48 bg-white/95 backdrop-blur-sm rounded-lg shadow-lg py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <a href="../详细介绍/代表作品.html"
+                            class="block px-4 py-2 text-dark hover:bg-primary/10 hover:text-primary transition-colors dropdown-link card-link"
+                            >代表作品</a>
+                        <a href="../详细介绍/传承人.html"
+                            class="block px-4 py-2 text-dark hover:bg-primary/10 hover:text-primary transition-colors dropdown-link card-link"
+                            >传承人</a>
+                    </div>
+                </div>
+                <a href="../unity体验/unity体验.html"
+                    class="nav-link text-dark hover:text-primary transition-colors">Unity体验</a>
+                <a href="../知识问答/知识问答.html" class="nav-link text-dark hover:text-primary transition-colors">知识问答</a>
+                <a href="../留言板/留言板.html" class="nav-link text-dark hover:text-primary transition-colors">留言板</a>
+
+            </div>
+
+            <!-- 移动端菜单按钮 -->
+            <button id="menu-toggle" class="md:hidden text-primary text-2xl focus:outline-none">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- 移动端导航菜单 -->
+        <div id="mobile-menu" class="md:hidden hidden bg-light/95 backdrop-blur-sm shadow-lg">
+            <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+                <a href="../首页/index.html"
+                    class="text-dark hover:text-primary py-2 border-b border-gray-200">首页</a>
+                <a href="../详细介绍/历史渊源.html" class="text-dark hover:text-primary py-2 border-b border-gray-200">历史渊源</a>
+                <a href="../详细介绍/艺术特色.html" class="text-dark hover:text-primary py-2 border-b border-gray-200">艺术特色</a>
+                <a href="../详细介绍/皮影制作.html" class="text-dark hover:text-primary py-2 border-b border-gray-200">皮影制作</a>
+                <a href="../详细介绍/代表作品.html" class="text-dark hover:text-primary py-2 border-b border-gray-200">代表作品</a>
+                <a href="../详细介绍/传承人.html" class="text-dark hover:text-primary py-2 border-b border-gray-200">传承人</a>
+                <a href="../unity体验/unity体验.html"
+                    class="text-dark hover:text-primary py-2 border-b border-gray-200">Unity体验</a>
+                <a href="../知识问答/知识问答.html" class="text-dark hover:text-primary py-2 border-b border-gray-200">知识问答</a>
+                <a href="../留言板/留言板.html" class="text-dark hover:text-primary py-2">留言板</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 艺术特色 -->
+    <section id="features" class="py-20 bg-white">
+        <!-- 背景图 -->
+        <div class="absolute inset-0 z-0">
+            <img src = "../图片素材/第三部分/第三部分背景图.jpg" alt="皮影戏背景" class="w-full h-full object-cover opacity-70">
+        </div>
+        <div class="container mx-auto px-4 relative z-10">
+            <h2 class="font-art text-[clamp(1.8rem,5vw,3rem)] text-primary text-center mb-6">艺术特色</h2>
+            <p class="text-center text-lg text-dark/70 max-w-3xl mx-auto mb-16">非遗皮影戏在长期发展过程中，形成了独特的艺术风格和鲜明的地方特色</p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+    
+                <!-- 造型特点 -->
+                <div
+                    class="bg-light rounded-lg overflow-hidden shadow-custom transform transition-all hover:-translate-y-2">
+                    <div class="h-48 overflow-hidden">
+                        <img src = "../图片素材/第三部分/艺术特色.jpg" alt="皮影造型特点"
+                            class="w-full h-full object-cover transition-transform hover:scale-110 duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-title text-xl text-primary mb-3">造型特点</h3>
+                        <p class="mb-4 leading-relaxed">
+                            湖湘皮影造型夸张生动，线条流畅，具有浓郁的民间艺术特色。人物形象多为五分脸或七分脸，突出表现面部特征。
+                        </p>
+                        <p class="leading-relaxed">
+                            影人的头部、身躯、四肢等部分可以活动，表演时通过艺人的操纵，能够做出各种生动的动作和表情。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 制作工艺 -->
+                <div
+                    class="bg-light rounded-lg overflow-hidden shadow-custom transform transition-all hover:-translate-y-2">
+                    <div class="h-48 overflow-hidden">
+                        <img src = "../图片素材/第三部分/制作工艺.jpg" alt="皮影制作工艺"
+                            class="w-full h-full object-cover transition-transform hover:scale-110 duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-title text-xl text-primary mb-3">制作工艺</h3>
+                        <p class="mb-4 leading-relaxed">
+                            湖湘皮影的制作工艺十分复杂，主要包括选皮、制皮、画稿、雕刻、上色、熨平、装订等多道工序。
+                        </p>
+                        <p class="leading-relaxed">
+                            传统上多选用黄牛皮或驴皮制作，经过精细加工后，制成透明的皮料，再进行雕刻和彩绘，最后组装成完整的影人。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 表演形式 -->
+                <div
+                    class="bg-light rounded-lg overflow-hidden shadow-custom transform transition-all hover:-translate-y-2">
+                    <div class="h-48 overflow-hidden">
+                        <img src = "../图片素材/第三部分/表演形式.jpg" alt="皮影表演形式"
+                            class="w-full h-full object-cover transition-transform hover:scale-110 duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-title text-xl text-primary mb-3">表演形式</h3>
+                        <p class="mb-4 leading-relaxed">
+                            湖湘皮影戏表演时，艺人们在白色幕布后面，一边操纵影人，一边用湖南方言配音演唱，同时配以乐器伴奏。
+                        </p>
+                        <p class="leading-relaxed">
+                            一个技艺精湛的艺人可以同时操纵多个影人，并能模仿各种人物的声音和动作，表现出丰富的情感和故事情节。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 音乐特色 -->
+                <div
+                    class="bg-light rounded-lg overflow-hidden shadow-custom transform transition-all hover:-translate-y-2">
+                    <div class="h-48 overflow-hidden">
+                        <img src = "../图片素材/第三部分/音乐特色.jpg" alt="皮影音乐特色"
+                            class="w-full h-full object-cover transition-transform hover:scale-110 duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-title text-xl text-primary mb-3">音乐特色</h3>
+                        <p class="mb-4 leading-relaxed">
+                            湖湘皮影戏的音乐具有浓郁的湖南地方特色，融合了湘剧、花鼓戏等地方戏曲的音乐元素，形成了独特的唱腔和曲调。
+                        </p>
+                        <p class="leading-relaxed">
+                            伴奏乐器主要有锣鼓、唢呐、二胡、笛子等，根据剧情需要，演奏出不同风格的音乐，增强表演的感染力。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 剧目内容 -->
+                <div
+                    class="bg-light rounded-lg overflow-hidden shadow-custom transform transition-all hover:-translate-y-2">
+                    <div class="h-48 overflow-hidden">
+                        <img src = "../图片素材/第三部分/剧目内容.jpg" alt="皮影剧目内容"
+                            class="w-full h-full object-cover transition-transform hover:scale-110 duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-title text-xl text-primary mb-3">剧目内容</h3>
+                        <p class="mb-4 leading-relaxed">
+                            湖湘皮影戏的剧目内容十分丰富，包括历史故事、民间传说、神话故事等。其中，以《封神演义》《西游记》等古典名著改编的剧目最为常见。
+                        </p>
+                        <p class="leading-relaxed">
+                            此外，还有许多反映湖南地方风情和民间生活的剧目，如《刘海砍樵》《打铜锣》等，深受当地群众喜爱。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 地域流派 -->
+                <div
+                    class="bg-light rounded-lg overflow-hidden shadow-custom transform transition-all hover:-translate-y-2">
+                    <div class="h-48 overflow-hidden">
+                        <img src = "../图片素材/第三部分/地域流派.jpg" alt="皮影地域流派"
+                            class="w-full h-full object-cover transition-transform hover:scale-110 duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-title text-xl text-primary mb-3">地域流派</h3>
+                        <p class="mb-4 leading-relaxed">
+                            湖湘皮影戏在长期发展中，形成了多个地域流派，主要有长沙皮影、衡阳皮影、常德皮影、邵阳皮影等。
+                        </p>
+                        <p class="leading-relaxed">
+                            各流派在造型、唱腔、表演等方面都有自己的特色，如长沙皮影造型精美，唱腔婉转；衡阳皮影动作夸张，风格粗犷。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 交互功能：皮影角色展示 - 优化了左右比例 -->
+            <div class="mt-20 max-w-5xl mx-auto relative z-10">
+
+                <h3 class="font-art text-2xl text-primary text-center mb-10">探索皮影角色</h3>
+
+                <div class="bg-light p-6 rounded-lg shadow-custom">
+                    <div class="grid md:grid-cols-4 gap-6">
+                        <!-- 角色选择 -->
+                        <div class="md:col-span-1">
+                            <p class="mb-4 text-center">点击选择角色：</p>
+                            <div class="space-y-3">
+                                <button
+                                    class="puppet-character w-full py-3 bg-white border-2 border-primary rounded hover:bg-primary/10 transition-colors"
+                                    data-character="hero">
+                                    <i class="fa fa-user mr-2"></i> 英雄
+                                </button>
+                                <button
+                                    class="puppet-character w-full py-3 bg-white border-2 border-gray-300 rounded hover:bg-primary/10 transition-colors"
+                                    data-character="princess">
+                                    <i class="fa fa-female mr-2"></i> 公主
+                                </button>
+                                <button
+                                    class="puppet-character w-full py-3 bg-white border-2 border-gray-300 rounded hover:bg-primary/10 transition-colors"
+                                    data-character="villain">
+                                    <i class="fa fa-bolt mr-2"></i> 反派
+                                </button>
+                                <button
+                                    class="puppet-character w-full py-3 bg-white border-2 border-gray-300 rounded hover:bg-primary/10 transition-colors"
+                                    data-character="god">
+                                    <i class="fa fa-star mr-2"></i> 神仙
+                                </button>
+                                <button
+                                    class="puppet-character w-full py-3 bg-white border-2 border-gray-300 rounded hover:bg-primary/10 transition-colors"
+                                    data-character="clown">
+                                    <i class="fa fa-smile-o mr-2"></i> 丑角
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 角色展示 - 修改了列宽比例 -->
+                        <div class="md:col-span-3 flex flex-col items-center justify-center">
+                            <div
+                                class="w-full max-w-md h-80 mb-6 flex items-center justify-center bg-white/50 rounded-lg p-4">
+                                <img id="character-image" src="../第三部分/英雄.jpg" alt="英雄角色"
+                                    class="max-h-full max-w-full object-contain puppet-shadow">
+                            </div>
+                            <div id="character-info" class="text-center max-w-md">
+                                <h4 class="font-title text-xl text-primary mb-2">英雄角色</h4>
+                                <p class="leading-relaxed">
+                                    英雄角色是湖湘皮影戏中最常见的角色类型之一，多表现为勇敢、正义、忠诚的人物形象。造型上通常身材魁梧，服饰华丽，面部表情刚毅。常见的英雄角色有岳飞、关羽、武松等历史或文学作品中的英雄人物。在表演中，英雄角色的动作刚劲有力，体现出英勇无畏的气质。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="详细介绍.js"></script>
+    <script src="../公用样式/公用.js"></script>
+</body>
+
+</html>

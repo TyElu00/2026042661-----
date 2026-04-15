@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>光影相逢 云游皮影 -- 皮影制作</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../公用样式/公用.css">
+    <link rel="stylesheet" href="传承人.css">
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;700;900&family=ZCOOL+XiaoWei&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#A62928',
+                        secondary: '#D4AF37',
+                        tertiary: '#8B4513',
+                        light: '#F5F0E6',
+                        dark: '#2D2320'
+                    },
+                    fontFamily: {
+                        art: ['"Ma Shan Zheng"', 'cursive'],
+                        title: ['"Noto Serif SC"', 'serif'],
+                        body: ['"ZCOOL XiaoWei"', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+</head>
+
+<body class="bg-light bg-pattern font-body text-dark antialiased">
+    <!-- 导航栏 -->
+    <nav id="main-nav" class="fixed w-full z-50 transition-all duration-300 bg-transparent">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#home" class="flex items-center space-x-2">
+                <i class="fa fa-film text-2xl text-primary"></i>
+                <span class="font-art text-2xl md:text-3xl text-primary">非遗皮影</span>
+            </a>
+
+            <!-- 桌面导航 -->
+            <div class="hidden md:flex space-x-8">
+                <a href="../首页/index.html" class="nav-link text-dark hover:text-primary transition-colors">首页</a>
+                <a href="../详细介绍/历史渊源.html" class="nav-link text-dark hover:text-primary transition-colors">历史渊源</a>
+                <div class="relative group" id="home-dropdown">
+                    <a href="../详细介绍/艺术特色.html"
+                        class="nav-link text-dark hover:text-primary transition-colors flex items-center">
+                        皮影双艺 <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                    </a>
+                    <div
+                        class="absolute top-full left-0 mt-2 w-48 bg-white/95 backdrop-blur-sm rounded-lg shadow-lg py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <a href="../详细介绍/艺术特色.html"
+                            class="block px-4 py-2 text-dark hover:bg-primary/10 hover:text-primary transition-colors dropdown-link card-link">艺术特色</a>
+                        <a href="../详细介绍/皮影制作.html"
+                            class="block px-4 py-2 text-dark hover:bg-primary/10 hover:text-primary transition-colors dropdown-link card-link">皮影制作</a>
+                    </div>
+                </div>
+                <div class="relative group" id="home-dropdown">
+                    <a href="../详细介绍/代表作品.html"
+                        class="nav-link text-dark hover:text-primary transition-colors flex items-center">
+                        皮影传承 <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                    </a>
+                    <div
+                        class="absolute top-full left-0 mt-2 w-48 bg-white/95 backdrop-blur-sm rounded-lg shadow-lg py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <a href="../详细介绍/代表作品.html"
+                            class="block px-4 py-2 text-dark hover:bg-primary/10 hover:text-primary transition-colors dropdown-link card-link">代表作品</a>
+                        <a href="../详细介绍/传承人.html"
+                            class="block px-4 py-2 text-dark hover:bg-primary/10 hover:text-primary transition-colors dropdown-link card-link">传承人</a>
+                    </div>
+                </div>
+                <a href="../unity体验/unity体验.html"
+                    class="nav-link text-dark hover:text-primary transition-colors">Unity体验</a>
+                <a href="../知识问答/知识问答.html" class="nav-link text-dark hover:text-primary transition-colors">知识问答</a>
+                <a href="../留言板/留言板.html" class="nav-link text-dark hover:text-primary transition-colors">留言板</a>
+
+            </div>
+
+            <!-- 移动端菜单按钮 -->
+            <button id="menu-toggle" class="md:hidden text-primary text-2xl focus:outline-none">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- 移动端导航菜单 -->
+        <div id="mobile-menu" class="md:hidden hidden bg-light/95 backdrop-blur-sm shadow-lg">
+            <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+                <a href="../首页/index.html"
+                    class="text-dark hover:text-primary py-2 border-b border-gray-200">首页</a>
+                <a href="../详细介绍/历史渊源.html" class="text-dark hover:text-primary py-2 border-b border-gray-200">历史渊源</a>
+                <a href="../详细介绍/艺术特色.html" class="text-dark hover:text-primary py-2 border-b border-gray-200">艺术特色</a>
+                <a href="../详细介绍/皮影制作.html" class="text-dark hover:text-primary py-2 border-b border-gray-200">皮影制作</a>
+                <a href="../详细介绍/代表作品.html" class="text-dark hover:text-primary py-2 border-b border-gray-200">代表作品</a>
+                <a href="../详细介绍/传承人.html" class="text-dark hover:text-primary py-2 border-b border-gray-200">传承人</a>
+                <a href="../unity体验/unity体验.html"
+                    class="text-dark hover:text-primary py-2 border-b border-gray-200">Unity体验</a>
+                <a href="../知识问答/知识问答.html" class="text-dark hover:text-primary py-2 border-b border-gray-200">知识问答</a>
+                <a href="../留言板/留言板.html" class="text-dark hover:text-primary py-2">留言板</a>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- 传承人 -->
+    <section id="inheritors" class="py-20 bg-light relative"> <!-- 新增 relative -->
+        <!-- 背景图容器：层级 z-0，仅作为背景 -->
+        <div class="absolute inset-0 z-0">
+            <img src = "../图片素材/传承人部分/传承人大图.jpg" alt="皮影戏背景" class="w-full h-full object-cover opacity-30">
+        </div>
+        <div class="section-divider"></div>
+        <div class="container mx-auto px-4">
+            <h2 class="font-art text-[clamp(1.8rem,5vw,3rem)] text-primary text-center mb-6">传承人</h2>
+            <p class="text-center text-lg text-dark/70 max-w-3xl mx-auto mb-16">正是因为有了这些传承人的努力，非遗皮影戏才能在新时代焕发出新的生机</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <!-- 传承人1 -->
+            <div class="card">
+                <img src = "../图片素材/传承人部分/何怀玉.png" alt="何怀玉"
+                    class="w-full h-full object-cover transition-transform hover:scale-110 duration-500">
+                <div class="card-content">
+                    <h3>何怀玉</h3>
+                    <p class="text-sm text-white/60 mb-3">长沙皮影戏传承人</p>
+                    <p>何怀玉是长沙皮影戏的第四代传承人，自幼跟随父亲学习皮影戏技艺，精通皮影制作和表演。</p>
+                    <p>何怀玉："我们就会让他知其然，也会让他知其所以然，告诉他为什么会是这样的设计，告诉他古人的这些智慧给以前的人们带来了一些什么样的快乐。尽量地把皮影的事业做好，把我们的传承做得尽善尽美。"
+                    </p>
+                </div>
+            </div>
+
+            <!-- 传承人2 -->
+            <div class="card">
+                <img src = "../图片素材/传承人部分/朱国强.png" alt="朱国强"
+                    class="w-full h-full object-cover transition-transform hover:scale-110 duration-500">
+                <div class="card-content">
+                    <h3>朱国强</h3>
+                    <p class="text-sm text-white/60 mb-3">望城皮影戏传承人</p>
+                    <p>朱国强是作为湖南省非物质遗产望城皮影戏第五代传承人，14岁便接过了父亲的那口皮箱，一唱就是四十多年。</p>
+                    <p>这些年间，他见证了望城皮影戏的兴衰历程，也一直在为其发展和传承奔波游走。虽已年近花甲，但他依旧怀着对传统文化艺术的信仰与热爱，将皮影戏不断改革和创新，以符合青少年和各界人士欣赏水平。
+                    </p>
+                </div>
+            </div>
+
+            <!-- 传承人3 -->
+            <div class="card">
+                <img src = "../图片素材/传承人部分/王冬林.png" alt="王冬林"
+                    class="w-full h-full object-cover transition-transform hover:scale-110 duration-500">
+                <div class="card-content">
+                    <h3>王冬林</h3>
+                    <p class="text-sm text-white/60 mb-3">衡阳皮影戏传承人</p>
+                    <p>第十七代皮影戏传承人王冬林与弟弟王月秋在父亲的影响下，从小学习皮影艺术，子承父业。</p>
+                    <p>南岳衡山皮影戏是湖南省首批省级非物质文化遗产，作为"中国皮影"的一部分，2014年被联合国教科文组织列入《人类非物质文化遗产代表名录》。如今已古稀之年的王冬林老人，每逢大小节庆时期，依然带着徒弟们在乡间拉幕布搭台唱戏。
+                    </p>
+                </div>
+            </div>
+
+            <!-- 传承人4 -->
+            <div class="card">
+                <img src = "../图片素材/传承人部分/王彪.png" alt="王彪"
+                    class="w-full h-full object-cover transition-transform hover:scale-110 duration-500">
+                <div class="card-content">
+                    <h3>王彪</h3>
+                    <p class="text-sm text-white/60 mb-3">四川皮影戏传承人</p>
+                    <p>四川川北皮影艺术团团长，国家级非物质文化遗产代表性项目皮影戏（四川皮影戏）国家级代表性传承人。</p>
+                    <p>王彪四处筹集资金,创建王皮影博物馆。希望以博物馆为依托,培养更多的皮影戏专业人才,让更多人了解和传承皮影戏,用更直观的方式讲皮影故事,让传统的艺术在现代科技的帮助下得到更完美地展示。
+                    </p>
+                </div>
+            </div>
+
+            <!-- 传承人5 -->
+            <div class="card">
+                <img src = "../图片素材/传承人部分/汪天稳.png" alt="汪天稳"
+                    class="w-full h-full object-cover transition-transform hover:scale-110 duration-500">
+                <div class="card-content">
+                    <h3>汪天稳</h3>
+                    <p class="text-sm text-white/60 mb-3">陕西皮影戏传承人</p>
+                    <p>国家级非物质文化遗产项目皮影戏代表性传承人，陕西省皮影协会主席、中国皮影艺术雕刻鉴定专家。</p>
+                    <p>汪天稳大师对于陕西皮影工艺的继承与创新，对失传图稿的整理与复制，对老皮影的鉴定与修复起着不可代替的作用。中外关于皮影学术研究的第一手资料大都来源于他。在业界被称为“活的皮影博物馆”。
+                    </p>
+                </div>
+            </div>
+
+            <!-- 传承人6 -->
+            <div class="card">
+                <img src = "../图片素材/传承人部分/秦礼刚.png" alt="秦礼刚"
+                    class="w-full h-full object-cover transition-transform hover:scale-110 duration-500">
+                <div class="card-content">
+                    <h3>秦礼刚</h3>
+                    <p class="text-sm text-white/60 mb-3">云梦皮影戏传承人</p>
+                    <p>国家级非物质文化遗产项目皮影戏代表性传承人，中国木偶皮影学会理事，湖北工艺美术名人，梦泽影戏馆馆长。</p>
+                    <p>云梦皮影戏国家级非物质文化遗产传承人秦礼刚：“每次台子一搭大家都围拢来了，那个心情就很不一样，觉得大家很喜欢这个东西，就是我们过去2000年来，它一直没有终止的。”
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- 传承人访谈 -->
+        <div class="mt-20 max-w-5xl mx-auto">
+            <h3 class="font-art text-2xl text-primary text-center mb-10">传承人访谈</h3>
+
+            <div class="bg-light p-6 rounded-lg shadow-custom">
+                <div class="grid md:grid-cols-5 gap-8">
+                    <div class="md:col-span-2">
+                        <!-- 将图片替换为视频 -->
+                        <video controls class="w-full h-full object-cover rounded-lg shadow" poster="../传承人部分/何怀玉.png">
+                            <source src="../图片素材/传承人部分/传承人访谈视频.mp4" type="video/mp4">
+                            您的浏览器不支持视频标签。
+                        </video>
+                    </div>
+                    <div class="md:col-span-3 flex flex-col justify-center">
+                        <div class="mb-6">
+                            <h4 class="font-title text-xl text-primary mb-2">何怀玉谈皮影戏传承</h4>
+                            <p class="text-sm text-dark/60">2019年5月采访</p>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div class="bg-white p-4 rounded-lg shadow">
+                                <p class="italic leading-relaxed">
+                                    "皮影戏是我们祖先留下的宝贵财富，它不仅是一种艺术，更是一种文化传承。我从小就跟着父亲学做皮影、演皮影，这一辈子都离不开它了。"
+                                </p>
+                            </div>
+
+                            <div class="bg-white p-4 rounded-lg shadow">
+                                <p class="italic leading-relaxed">
+                                    "现在的年轻人对传统艺术接触少了，很多人都不知道皮影戏是什么。我希望能通过自己的努力，让更多人了解和喜爱这项传统艺术。"
+                                </p>
+                            </div>
+
+                            <div class="bg-white p-4 rounded-lg shadow">
+                                <p class="italic leading-relaxed">
+                                    "传承不是一成不变，我们也要创新。我尝试将现代题材融入皮影戏中，比如环保、交通安全等，让皮影戏能更好地反映时代主题，也更容易被年轻人接受。"
+                                </p>
+                            </div>
+
+                            <div class="bg-white p-4 rounded-lg shadow">
+                                <p class="italic leading-relaxed">
+                                    "只要还有一个人愿意看，还有一个人愿意学，我就会一直把皮影戏演下去、传下去。这是我的责任，也是我的心愿。"
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-divider-reverse"></div>
+    </section>
+
+    <!-- 更多作品页面 (默认隐藏) - 修复了滚动问题 -->
+    <div id="more-works-modal" class="fixed inset-0 bg-black/60 z-50 hidden">
+        <div class="absolute inset-0" id="modal-backdrop"></div>
+        <div
+            class="relative min-h-screen bg-white z-10 transform transition-transform duration-500 ease-in-out overflow-y-auto">
+            <div class="container mx-auto px-4 py-16">
+                <div class="flex justify-between items-center mb-10">
+                    <h2 class="font-art text-[clamp(1.8rem,5vw,3rem)] text-primary">更多皮影戏作品</h2>
+                    <button id="close-more-works" class="text-2xl text-dark hover:text-primary transition-colors p-2">
+                        <i class="fa fa-times"></i>
+                    </button>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- 更多作品1 -->
+                    <div class="puppet-card bg-light rounded-lg overflow-hidden shadow-custom">
+                        <div class="h-56 overflow-hidden">
+                            <img src = "../图片素材/代表作品/白蛇传.jpg" alt="《白蛇传》"
+                                class="w-full h-full object-cover transition-transform hover:scale-110 duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-title text-xl text-primary mb-2">《白蛇传》</h3>
+                            <p class="text-sm text-dark/60 mb-4">神话爱情剧</p>
+                            <p class="leading-relaxed">
+                                《白蛇传》是中国四大民间传说之一，讲述了白蛇白素贞与许仙之间的爱情故事。湖湘皮影戏《白蛇传》以其精美的造型和细腻的表演，生动展现了这个动人的爱情故事。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 更多作品2 -->
+                    <div class="puppet-card bg-light rounded-lg overflow-hidden shadow-custom">
+                        <div class="h-56 overflow-hidden">
+                            <img src = "../图片素材/代表作品/三国演义.jpg" alt="《三国演义》"
+                                class="w-full h-full object-cover transition-transform hover:scale-110 duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-title text-xl text-primary mb-2">《三国演义》</h3>
+                            <p class="text-sm text-dark/60 mb-4">历史战争剧</p>
+                            <p class="leading-relaxed">
+                                根据古典名著《三国演义》改编的皮影戏，选取了桃园结义、赤壁之战等经典情节，通过皮影的形式展现了三国时期的英雄人物和历史事件。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 更多作品3 -->
+                    <div class="puppet-card bg-light rounded-lg overflow-hidden shadow-custom">
+                        <div class="h-56 overflow-hidden">
+                            <img src = "../图片素材/代表作品/武松打虎·.jpg" alt="《武松打虎》"
+                                class="w-full h-full object-cover transition-transform hover:scale-110 duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-title text-xl text-primary mb-2">《武松打虎》</h3>
+                            <p class="text-sm text-dark/60 mb-4">英雄故事剧</p>
+                            <p class="leading-relaxed">
+                                取材于《水浒传》，讲述了武松在景阳冈打死老虎的故事。湖湘皮影戏《武松打虎》以其精彩的武打场面和夸张的动作设计，深受观众喜爱。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   <!-- 页脚 -->
+   <footer class="bg-dark text-light py-12">
+    <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-4 gap-8">
+            <div>
+                <h3 class="font-art text-2xl text-secondary mb-4">湖湘皮影</h3>
+                <p class="text-light/70 leading-relaxed">
+                    传承湖湘文化，弘扬皮影艺术，让这项古老的民间艺术在新时代焕发出新的生机。
+                </p>
+            </div>
+
+            <div>
+                <h4 class="text-lg text-secondary mb-4">快速链接</h4>
+                <ul class="space-y-2">
+                    <li><a href="#home" class="text-light/70 hover:text-secondary transition-colors">首页</a></li>
+                    <li><a href="#history" class="text-light/70 hover:text-secondary transition-colors">历史渊源</a>
+                    </li>
+                    <li><a href="#features" class="text-light/70 hover:text-secondary transition-colors">艺术特色</a>
+                    </li>
+                    <li><a href="#craft" class="text-light/70 hover:text-secondary transition-colors">皮影制作</a></li>
+                    <li><a href="#works" class="text-light/70 hover:text-secondary transition-colors">代表作品</a></li>
+                    <li><a href="#inheritors" class="text-light/70 hover:text-secondary transition-colors">传承人</a>
+                    </li>
+                    <li><a href="#unity" class="text-light/70 hover:text-secondary transition-colors">Unity体验</a>
+                    </li>
+                    <li><a href="#quiz" class="text-light/70 hover:text-secondary transition-colors">知识问答</a></li>
+                    <li><a href="#message-board"
+                            class="text-light/70 hover:text-secondary transition-colors">留言板</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-lg text-secondary mb-4">相关资源</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-light/70 hover:text-secondary transition-colors">湖南省非物质文化遗产保护中心</a>
+                    </li>
+                    <li><a href="#" class="text-light/70 hover:text-secondary transition-colors">湖湘文化研究中心</a></li>
+                    <li><a href="#" class="text-light/70 hover:text-secondary transition-colors">中国皮影戏网</a></li>
+                    <li><a href="#" class="text-light/70 hover:text-secondary transition-colors">湖南民间艺术博物馆</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-lg text-secondary mb-4">联系我们</h4>
+                <ul class="space-y-2">
+                    <li class="flex items-center">
+                        <i class="fa fa-map-marker text-secondary mr-3"></i>
+                        <span class="text-light/70">湖南省长沙市岳麓区</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fa fa-phone text-secondary mr-3"></i>
+                        <span class="text-light/70">0731-12345678</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fa fa-envelope text-secondary mr-3"></i>
+                        <span class="text-light/70">info@huxiangpiying.com</span>
+                    </li>
+                </ul>
+
+                <div class="mt-6 flex space-x-4">
+                    <a href="#"
+                        class="w-10 h-10 rounded-full bg-light/10 flex items-center justify-center hover:bg-secondary/80 transition-colors">
+                        <i class="fa fa-weixin"></i>
+                    </a>
+                    <a href="#"
+                        class="w-10 h-10 rounded-full bg-light/10 flex items-center justify-center hover:bg-secondary/80 transition-colors">
+                        <i class="fa fa-weibo"></i>
+                    </a>
+                    <a href="#"
+                        class="w-10 h-10 rounded-full bg-light/10 flex items-center justify-center hover:bg-secondary/80 transition-colors">
+                        <i class="fa fa-instagram"></i>
+                    </a>
+                    <a href="#"
+                        class="w-10 h-10 rounded-full bg-light/10 flex items-center justify-center hover:bg-secondary/80 transition-colors">
+                        <i class="fa fa-youtube-play"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="border-t border-light/10 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
+            <p class="text-light/50 text-sm mb-4 md:mb-0">
+                &copy; 2025 湖湘皮影戏文化网 版权所有
+            </p>
+            <div class="flex space-x-6">
+                <a href="#" class="text-light/50 text-sm hover:text-light/80 transition-colors">隐私政策</a>
+                <a href="#" class="text-light/50 text-sm hover:text-light/80 transition-colors">使用条款</a>
+                <a href="#" class="text-light/50 text-sm hover:text-light/80 transition-colors">关于我们</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="知识问答.js"></script>
+<script src="../公用样式/公用.js"></script>
+</body>
+
+</html>

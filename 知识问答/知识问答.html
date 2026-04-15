@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>光影相逢 云游皮影 -- 知识问答</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../公用样式/公用.css">
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;700;900&family=ZCOOL+XiaoWei&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#A62928',
+                        secondary: '#D4AF37',
+                        tertiary: '#8B4513',
+                        light: '#F5F0E6',
+                        dark: '#2D2320'
+                    },
+                    fontFamily: {
+                        art: ['"Ma Shan Zheng"', 'cursive'],
+                        title: ['"Noto Serif SC"', 'serif'],
+                        body: ['"ZCOOL XiaoWei"', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-light bg-pattern font-body text-dark antialiased">
+    <!-- 导航栏 -->
+    <nav id="main-nav" class="fixed w-full z-50 transition-all duration-300 bg-transparent">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#home" class="flex items-center space-x-2">
+                <i class="fa fa-film text-2xl text-primary"></i>
+                <span class="font-art text-2xl md:text-3xl text-primary">非遗皮影</span>
+            </a>
+
+            <!-- 桌面导航 -->
+            <div class="hidden md:flex space-x-8">
+                <a href="../首页/index.html" class="nav-link text-dark hover:text-primary transition-colors">首页</a>
+                <a href="../详细介绍/历史渊源.html" class="nav-link text-dark hover:text-primary transition-colors">历史渊源</a>
+                <div class="relative group" id="home-dropdown">
+                    <a href="../详细介绍/艺术特色.html" class="nav-link text-dark hover:text-primary transition-colors flex items-center">
+                        皮影双艺 <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                    </a>
+                    <div
+                        class="absolute top-full left-0 mt-2 w-48 bg-white/95 backdrop-blur-sm rounded-lg shadow-lg py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <a href="../详细介绍/艺术特色.html"
+                            class="block px-4 py-2 text-dark hover:bg-primary/10 hover:text-primary transition-colors dropdown-link card-link"
+                        >艺术特色</a>
+                        <a href="../详细介绍/皮影制作.html"
+                            class="block px-4 py-2 text-dark hover:bg-primary/10 hover:text-primary transition-colors dropdown-link card-link"
+                        >皮影制作</a>
+                    </div>
+                </div>
+                <div class="relative group" id="home-dropdown">
+                    <a href="../详细介绍/代表作品.html" class="nav-link text-dark hover:text-primary transition-colors flex items-center">
+                        皮影传承 <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                    </a>
+                    <div
+                        class="absolute top-full left-0 mt-2 w-48 bg-white/95 backdrop-blur-sm rounded-lg shadow-lg py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <a href="../详细介绍/代表作品.html"
+                            class="block px-4 py-2 text-dark hover:bg-primary/10 hover:text-primary transition-colors dropdown-link card-link">代表作品</a>
+                        <a href="../详细介绍/传承人.html"
+                            class="block px-4 py-2 text-dark hover:bg-primary/10 hover:text-primary transition-colors dropdown-link card-link">传承人</a>
+                    </div>
+                </div>
+                <a href="../unity体验/unity体验.html"
+                    class="nav-link text-dark hover:text-primary transition-colors">Unity体验</a>
+                <a href="../知识问答/知识问答.html" class="nav-link text-dark hover:text-primary transition-colors">知识问答</a>
+                <a href="../留言板/留言板.html" class="nav-link text-dark hover:text-primary transition-colors">留言板</a>
+
+            </div>
+
+            <!-- 移动端菜单按钮 -->
+            <button id="menu-toggle" class="md:hidden text-primary text-2xl focus:outline-none">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- 移动端导航菜单 -->
+        <div id="mobile-menu" class="md:hidden hidden bg-light/95 backdrop-blur-sm shadow-lg">
+            <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+                <a href="../首页/index.html"
+                    class="text-dark hover:text-primary py-2 border-b border-gray-200">首页</a>
+                <a href="../详细介绍/历史渊源.html" class="text-dark hover:text-primary py-2 border-b border-gray-200">历史渊源</a>
+                <a href="../详细介绍/艺术特色.html"
+                    class="text-dark hover:text-primary py-2 border-b border-gray-200">艺术特色</a>
+                <a href="../详细介绍/皮影制作.html"
+                    class="text-dark hover:text-primary py-2 border-b border-gray-200">皮影制作</a>
+                <a href="../详细介绍/代表作品.html"
+                    class="text-dark hover:text-primary py-2 border-b border-gray-200">代表作品</a>
+                <a href="../详细介绍/传承人.html"
+                    class="text-dark hover:text-primary py-2 border-b border-gray-200">传承人</a>
+                <a href="../unity体验/unity体验.html"
+                    class="text-dark hover:text-primary py-2 border-b border-gray-200">Unity体验</a>
+                <a href="../知识问答/知识问答.html" class="text-dark hover:text-primary py-2 border-b border-gray-200">知识问答</a>
+                <a href="../留言板/留言板.html" class="text-dark hover:text-primary py-2">留言板</a>
+            </div>
+        </div>
+    </nav>
+
+<!-- 首页大图 -->
+<div>
+    <div class="relative w-full h-[50vh] md:h-[100vh] overflow-hidden">
+        <img src = "../图片素材/知识问答和留言板背景/知识问答大图.jpg" alt="中国皮影戏" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+            <div class="text-center text-white px-4">
+                <h1 class="font-art text-3xl md:text-5xl mb-2">中国皮影戏</h1>
+                <p class="text-lg md:text-xl">传承千年光影艺术，弘扬传统文化精髓</p>
+            </div>
+        </div>
+    </div>
+</div>
+  
+    
+    <!-- 知识问答 -->
+    <section id="quiz" class="py-20 bg-light relative"> <!-- 新增 relative -->
+        <!-- 背景图容器：层级 z-0，仅作为背景 -->
+        <div class="absolute inset-0 z-0">
+            <img src = "../图片素材/知识问答和留言板背景/知识问答.png" alt="皮影戏背景" class="w-full h-full object-cover opacity-90">
+        </div>
+        <div class="section-divider"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <h2 class="font-art text-[clamp(1.8rem,5vw,3rem)] text-primary text-center mb-6">知识问答</h2>
+            <p class="text-center text-lg text-dark/70 max-w-3xl mx-auto mb-16">测试一下你对湖湘皮影戏的了解程度吧！</p>
+            <div class="max-w-3xl mx-auto">
+                <div id="quiz-container" class="bg-light rounded-lg shadow-custom p-8">
+                    <!-- 问题区域 -->
+                    <div id="question-container">
+                        <div class="flex items-center mb-6">
+                            <span
+                                class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center mr-3">1</span>
+                            <h3 class="font-title text-xl">湖湘皮影戏中，最常用的制作材料是什么？</h3>
+                        </div>
+
+                        <div class="space-y-3 mb-8" id="answers">
+                            <div
+                                class="answer-option p-4 border border-gray-300 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors cursor-pointer">
+                                <label class="flex items-center cursor-pointer">
+                                    <input type="radio" name="q1" value="A" class="mr-3">
+                                    <span>纸张</span>
+                                </label>
+                            </div>
+                            <div
+                                class="answer-option p-4 border border-gray-300 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors cursor-pointer">
+                                <label class="flex items-center cursor-pointer">
+                                    <input type="radio" name="q1" value="B" class="mr-3">
+                                    <span>黄牛皮</span>
+                                </label>
+                            </div>
+                            <div
+                                class="answer-option p-4 border border-gray-300 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors cursor-pointer">
+                                <label class="flex items-center cursor-pointer">
+                                    <input type="radio" name="q1" value="C" class="mr-3">
+                                    <span>塑料</span>
+                                </label>
+                            </div>
+                            <div
+                                class="answer-option p-4 border border-gray-300 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors cursor-pointer">
+                                <label class="flex items-center cursor-pointer">
+                                    <input type="radio" name="q1" value="D" class="mr-3">
+                                    <span>布料</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-between">
+                            <button id="prev-question"
+                                class="px-6 py-2 bg-gray-200 text-dark rounded-md hover:bg-gray-300 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                                disabled>
+                                <i class="fa fa-chevron-left mr-2"></i> 上一题
+                            </button>
+                            <button id="next-question"
+                                class="px-6 py-2 bg-primary text-light rounded-md hover:bg-primary/90 transition-colors">
+                                下一题 <i class="fa fa-chevron-right ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 结果反馈区域 -->
+                    <div id="feedback-container" class="hidden text-center py-8">
+                        <div id="confetti-container" class="fixed inset-0 pointer-events-none z-50"></div>
+                        <div id="cry-container" class="fixed inset-0 pointer-events-none z-50"></div>
+
+                        <div id="correct-feedback" class="hidden">
+                            <div class="text-6xl mb-4">🎉</div>
+                            <h3 class="font-title text-2xl text-green-600 mb-2">你太棒了！</h3>
+                            <p class="mb-6">恭喜你答对了！</p>
+                            <p id="explanation" class="text-left bg-white p-4 rounded-lg mb-6">
+                                湖湘皮影戏最常用的制作材料是黄牛皮，经过浸泡、刮削、晾晒等多道工序处理后，制成透明的皮料，再进行雕刻和彩绘。
+                            </p>
+                        </div>
+
+                        <div id="incorrect-feedback" class="hidden">
+                            <div class="text-6xl mb-4">😢</div>
+                            <h3 class="font-title text-2xl text-red-600 mb-2">真是太遗憾了，继续加油哦~</h3>
+                            <p class="mb-6">你的答案是错误的。</p>
+                            <p id="correct-answer" class="text-left bg-white p-4 rounded-lg mb-6">
+                                正确答案是：黄牛皮。湖湘皮影戏最常用的制作材料是黄牛皮，经过浸泡、刮削、晾晒等多道工序处理后，制成透明的皮料，再进行雕刻和彩绘。
+                            </p>
+                        </div>
+
+                        <button id="continue-btn"
+                            class="px-6 py-2 bg-primary text-light rounded-md hover:bg-primary/90 transition-colors">
+                            继续答题 <i class="fa fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+
+                    <!-- 完成页面 -->
+                    <div id="completed-container" class="hidden text-center py-8">
+                        <h3 class="font-art text-2xl text-primary mb-6">恭喜完成所有题目！</h3>
+                        <div class="w-32 h-32 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <span id="score" class="font-title text-4xl text-primary">0/5</span>
+                        </div>
+                        <p class="mb-8 text-lg">感谢你参与湖湘皮影戏知识问答，希望你对湖湘皮影戏有了更深入的了解。</p>
+                        <button id="restart-quiz"
+                            class="px-6 py-2 bg-primary text-light rounded-md hover:bg-primary/90 transition-colors">
+                            重新开始 <i class="fa fa-refresh ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 进度条 -->
+                <div class="mt-6 bg-gray-200 rounded-full h-2.5">
+                    <div id="quiz-progress" class="bg-primary h-2.5 rounded-full" style="width: 20%"></div>
+                </div>
+
+                <div class="flex justify-between mt-2 text-sm text-dark/60">
+                    <span id="current-question">第 1 题</span>
+                    <span>共 10 题</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="知识问答.js"></script>
+    <script src="../公用样式/公用.js"></script>
+</body>
+
+</html>

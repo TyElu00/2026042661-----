@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>湖湘文化之皮影戏</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../公用样式/公用.css">
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;700;900&family=ZCOOL+XiaoWei&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#A62928',
+                        secondary: '#D4AF37',
+                        tertiary: '#8B4513',
+                        light: '#F5F0E6',
+                        dark: '#2D2320'
+                    },
+                    fontFamily: {
+                        art: ['"Ma Shan Zheng"', 'cursive'],
+                        title: ['"Noto Serif SC"', 'serif'],
+                        body: ['"ZCOOL XiaoWei"', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+</head>
+
+<body class="bg-light bg-pattern font-body text-dark antialiased">
+    <!-- 导航栏 -->
+    <nav id="main-nav" class="fixed w-full z-50 transition-all duration-300 bg-transparent">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#home" class="flex items-center space-x-2">
+                <i class="fa fa-film text-2xl text-primary"></i>
+                <span class="font-art text-2xl md:text-3xl text-primary">湖湘皮影</span>
+            </a>
+
+            <!-- 桌面导航 -->
+            <div class="hidden md:flex space-x-8">
+                <!-- 首页下拉菜单 -->
+                 <a href="../首页/index.html" class="nav-link text-dark hover:text-primary transition-colors card-link">首页</a>
+                 <a href="历史渊源.html" class="nav-link text-dark hover:text-primary transition-colors card-link">历史渊源</a>
+                <div class="relative group">
+                    <a href="艺术特色.html" class="nav-link text-dark hover:text-primary transition-colors flex items-center card-link">
+                        皮影双艺 <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                    </a>
+                    <div class="absolute top-full left-0 mt-2 w-48 bg-white/95 backdrop-blur-sm rounded-lg shadow-lg py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <a href="艺术特色.html" class="block px-4 py-2 text-dark hover:bg-primary/10 hover:text-primary transition-colors">艺术特色</a>
+                        <a href="皮影制作.html" class="block px-4 py-2 text-dark hover:bg-primary/10 hover:text-primary transition-colors">皮影制作</a>
+                    </div>
+                </div>
+                                <div class="relative group">
+                    <a href="代表作品.html" class="nav-link text-dark hover:text-primary transition-colors flex items-center card-link">
+                        皮影双艺 <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                    </a>
+                    <div class="absolute top-full left-0 mt-2 w-48 bg-white/95 backdrop-blur-sm rounded-lg shadow-lg py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <a href="代表作品.html" class="block px-4 py-2 text-dark hover:bg-primary/10 hover:text-primary transition-colors">代表作品</a>
+                        <a href="传承人.html" class="block px-4 py-2 text-dark hover:bg-primary/10 hover:text-primary transition-colors">传承人</a>
+                    </div>
+                </div>
+                <a href="../unity体验/unity体验.html" class="nav-link text-dark hover:text-primary transition-colors card-link">Unity体验</a>
+                <a href="../知识问答/知识问答.html" class="nav-link text-dark hover:text-primary transition-colors card-link">知识问答</a>
+                <a href="../留言板/留言板.html" class="nav-link text-dark hover:text-primary transition-colors card-link">留言板</a>
+            </div>
+    </nav>
+
+        <!-- 移动端导航菜单 -->
+        <div id="mobile-menu" class="md:hidden hidden bg-light/95 backdrop-blur-sm shadow-lg">
+            <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+                <a href="../首页/index.html"
+                    class="text-dark hover:text-primary py-2 border-b border-gray-200">首页</a>
+                <a href="../详细介绍/历史渊源.html" class="text-dark hover:text-primary py-2 border-b border-gray-200">历史渊源</a>
+                <a href="../详细介绍/艺术特色.html" class="text-dark hover:text-primary py-2 border-b border-gray-200">艺术特色</a>
+                <a href="../详细介绍/皮影制作.html" class="text-dark hover:text-primary py-2 border-b border-gray-200">皮影制作</a>
+                <a href="../详细介绍/代表作品.html" class="text-dark hover:text-primary py-2 border-b border-gray-200">代表作品</a>
+                <a href="../详细介绍/传承人.html" class="text-dark hover:text-primary py-2 border-b border-gray-200">传承人</a>
+                <a href="../unity体验/unity体验.html"
+                    class="text-dark hover:text-primary py-2 border-b border-gray-200">Unity体验</a>
+                <a href="../知识问答/知识问答.html" class="text-dark hover:text-primary py-2 border-b border-gray-200">知识问答</a>
+                <a href="../留言板/留言板.html" class="text-dark hover:text-primary py-2">留言板</a>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <!-- 代表作品 -->
+    <section id="works" class="py-20 bg-light relative"> <!-- 新增 relative -->
+        <!-- 背景图容器：层级 z-0，仅作为背景 -->
+        <div class="absolute inset-0 z-0">
+            <img src ="../图片素材/代表作品/背景图.jpg" alt="皮影戏背景" class="w-full h-full object-cover opacity-70">
+        </div>
+        <h2 class="font-art text-[clamp(1.8rem,5vw,3rem)] text-primary text-center mb-6">代表作品</h2>
+        <p class="text-center text-lg text-dark/70 max-w-3xl mx-auto mb-16">湖湘皮影戏有着丰富的剧目，这些作品反映了湖南地区的历史文化和民间风情</p>
+
+        <!-- 作品展示 -->
+        <!-- 主轮播区域 -->
+        <main class="relative max-w-6xl mx-auto px-4 py-8">
+            <!-- 轮播容器 -->
+            <div
+                class="carousel-container overflow-hidden relative h-[60vh] min-h-[400px] flex items-center justify-center">
+                <div id="carousel" class="flex items-center justify-center w-full h-full transition-transform duration-700 ease-in-out">
+                    <!-- 轮播项目将通过JS动态生成 -->
+                </div>
+
+                <!-- 左右导航按钮 -->
+                <button id="prev-btn"
+                    class="absolute left-2 md:left-6 top-1/2 transform -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary/80 text-white flex items-center justify-center hover:bg-primary transition-all duration-300 z-10">
+                    <i class="fa fa-chevron-left"></i>
+                </button>
+                <button id="next-btn"
+                    class="absolute right-2 md:right-6 top-1/2 transform -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary/80 text-white flex items-center justify-center hover:bg-primary transition-all duration-300 z-10">
+                    <i class="fa fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <!-- 底部控制区 -->
+            <div class="text-center mt-8">
+                <button id="toggle-play"
+                    class="px-6 py-3 bg-primary text-white rounded-full hover:bg-dark transition-all duration-300 flex items-center justify-center mx-auto">
+                    <i class="fa fa-pause mr-2"></i>
+                    <span>暂停播放</span>
+                </button>
+
+                <div class="mt-6 flex justify-center gap-3" id="indicators-container">
+                    <!-- 指示器将通过JS动态生成 -->
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mt-16">
+                <!-- 作品1 -->
+                <div class="puppet-card bg-light rounded-lg overflow-hidden shadow-custom">
+                    <div class="h-56 overflow-hidden">
+                        <img src ="../图片素材/代表作品/嫦娥奔月.jpg" alt="《嫦娥奔月》"
+                            class="w-full h-full object-cover transition-transform hover:scale-110 duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-title text-xl text-primary mb-2">《嫦娥奔月》</h3>
+                        <p class="text-sm text-dark/60 mb-4">神话传说剧</p>
+                        <p class="mb-4 leading-relaxed">
+                            讲述了嫦娥偷吃仙药飞上月球的神话故事。该剧在视觉表现上独具特色，通过巧妙的光影效果，展现了月亮、云彩等奇幻场景。
+                        </p>
+                        <p class="leading-relaxed">
+                            该剧在湖湘皮影戏中占有重要地位，各地皮影戏班都有不同版本的演绎，音乐采用湖南花鼓戏的曲调，具有浓郁的地方特色。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 作品2 -->
+                <div class="puppet-card bg-light rounded-lg overflow-hidden shadow-custom">
+                    <div class="h-56 overflow-hidden">
+                        <img src ="../图片素材/代表作品/封神演义.jpg" alt="《封神演义》"
+                            class="w-full h-full object-cover transition-transform hover:scale-110 duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-title text-xl text-primary mb-2">《封神演义》</h3>
+                        <p class="text-sm text-dark/60 mb-4">历史神话剧</p>
+                        <p class="mb-4 leading-relaxed">
+                            《封神演义》是根据中国古典名著改编的皮影戏，讲述了商周时期姜子牙辅佐周武王伐纣的故事。
+                        </p>
+                        <p class="leading-relaxed">
+                            湖湘皮影戏《封神演义》以其精美的影人造型和精彩的武打场面著称，剧中的神仙、妖魔形象各异，栩栩如生。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 作品3 -->
+                <div class="puppet-card bg-light rounded-lg overflow-hidden shadow-custom">
+                    <div class="h-56 overflow-hidden">
+                        <img src ="../图片素材/代表作品/西游记.jpg" alt="《西游记》"
+                            class="w-full h-full object-cover transition-transform hover:scale-110 duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-title text-xl text-primary mb-2">《西游记》</h3>
+                        <p class="text-sm text-dark/60 mb-4">古典名著改编剧</p>
+                        <p class="mb-4 leading-relaxed">
+                            《西游记》是湖湘皮影戏中最受欢迎的剧目之一，改编自吴承恩的同名小说，讲述了唐僧师徒西天取经的故事。
+                        </p>
+                        <p class="leading-relaxed">
+                            该剧在表演中充分发挥了皮影戏的特长，通过巧妙的操纵，表现出孙悟空的七十二变、腾云驾雾等奇幻场景。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 作品4 -->
+                <div class="puppet-card bg-light rounded-lg overflow-hidden shadow-custom">
+                    <div class="h-56 overflow-hidden">
+                        <img src ="../图片素材/代表作品/哪吒.jpg" alt="《哪吒》"
+                            class="w-full h-full object-cover transition-transform hover:scale-110 duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-title text-xl text-primary mb-2">《哪吒》</h3>
+                        <p class="text-sm text-dark/60 mb-4">现代生活剧</p>
+                        <p class="mb-4 leading-relaxed">
+                            改编自《封神演义》中的哪吒故事，讲述了哪吒大闹东海、剔骨还父等经典情节。该剧造型可爱，情节生动，深受儿童观众喜爱。
+                        </p>
+                        <p class="leading-relaxed">
+                            该剧语言生动幽默，充满了湖南地方特色，通过生活化的情节，展现了集体主义精神和农村的新风尚。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 作品5 -->
+                <div class="puppet-card bg-light rounded-lg overflow-hidden shadow-custom">
+                    <div class="h-56 overflow-hidden">
+                        <img src ="../图片素材/代表作品/桃花源记.jpg" alt="《桃花源记》"
+                            class="w-full h-full object-cover transition-transform hover:scale-110 duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-title text-xl text-primary mb-2">《桃花源记》</h3>
+                        <p class="text-sm text-dark/60 mb-4">古典文学改编剧</p>
+                        <p class="mb-4 leading-relaxed">
+                            《桃花源记》根据东晋文学家陶渊明的同名散文改编，讲述了一个渔民偶然发现世外桃源的故事。
+                        </p>
+                        <p class="leading-relaxed">
+                            湖湘皮影戏《桃花源记》以其优美的画面和诗意的表现手法，展现了湖南地区的自然风光和人文情怀，具有很高的艺术价值。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 作品6 -->
+                <div class="puppet-card bg-light rounded-lg overflow-hidden shadow-custom">
+                    <div class="h-56 overflow-hidden">
+                        <img src ="../图片素材/代表作品/花木兰.jpg" alt="《花木兰》"
+                            class="w-full h-full object-cover transition-transform hover:scale-110 duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-title text-xl text-primary mb-2">《花木兰》</h3>
+                        <p class="text-sm text-dark/60 mb-4">古代历史剧</p>
+                        <p class="mb-4 leading-relaxed">
+                            该剧以传统皮影技艺演绎花木兰女扮男装、替父从军的经典故事。其特点在于创新性地融合多媒体技术，以水墨动画风格营造沉浸式舞台效果，并引入象征精神守护的全新角色。
+                        </p>
+                        <p class="leading-relaxed">
+                            全剧通过精雕细琢的影人造型、行云流水的武打动作设计，以及传统乐器与现代视觉艺术的交融，生动展现巾帼英雄的忠勇与家国情怀。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 更多作品按钮 -->
+            <div class="text-center mt-12">
+                <button id="more-works-btn"
+                    class="px-8 py-3 bg-primary text-light rounded-md hover:bg-primary/90 transition-all transform hover:-translate-y-1 shadow-lg">
+                    查看更多作品 <i class="fa fa-angle-double-right ml-2"></i>
+                </button>
+            </div>
+
+            <!-- 作品统计 -->
+            <div class="mt-20 max-w-4xl mx-auto">
+                <h3 class="font-art text-2xl text-primary text-center mb-10">湖湘皮影戏剧目类型分布</h3>
+                <div class="bg-white p-6 rounded-lg shadow-custom">
+                    <canvas id="works-chart" height="265"></canvas>
+                </div>
+            </div>
+            </div>
+    </section>
+
+    <!-- 更多作品页面 (默认隐藏) - 修复了滚动问题 -->
+    <div id="more-works-modal" class="fixed inset-0 bg-black/60 z-50 hidden">
+        <div class="absolute inset-0" id="modal-backdrop"></div>
+        <div
+            class="relative min-h-screen bg-white z-10 transform transition-transform duration-500 ease-in-out overflow-y-auto">
+            <div class="container mx-auto px-4 py-16">
+                <div class="flex justify-between items-center mb-10">
+                    <h2 class="font-art text-[clamp(1.8rem,5vw,3rem)] text-primary">更多皮影戏作品</h2>
+                    <button id="close-more-works" class="text-2xl text-dark hover:text-primary transition-colors p-2">
+                        <i class="fa fa-times"></i>
+                    </button>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- 更多作品1 -->
+                    <div class="puppet-card bg-light rounded-lg overflow-hidden shadow-custom">
+                        <div class="h-56 overflow-hidden">
+                            <img src ="../图片素材/代表作品/白蛇传.jpg" alt="《白蛇传》"
+                                class="w-full h-full object-cover transition-transform hover:scale-110 duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-title text-xl text-primary mb-2">《白蛇传》</h3>
+                            <p class="text-sm text-dark/60 mb-4">神话爱情剧</p>
+                            <p class="leading-relaxed">
+                                《白蛇传》是中国四大民间传说之一，讲述了白蛇白素贞与许仙之间的爱情故事。湖湘皮影戏《白蛇传》以其精美的造型和细腻的表演，生动展现了这个动人的爱情故事。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 更多作品2 -->
+                    <div class="puppet-card bg-light rounded-lg overflow-hidden shadow-custom">
+                        <div class="h-56 overflow-hidden">
+                            <img src ="../图片素材/代表作品/三国演义.jpg" alt="《三国演义》"
+                                class="w-full h-full object-cover transition-transform hover:scale-110 duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-title text-xl text-primary mb-2">《三国演义》</h3>
+                            <p class="text-sm text-dark/60 mb-4">历史战争剧</p>
+                            <p class="leading-relaxed">
+                                根据古典名著《三国演义》改编的皮影戏，选取了桃园结义、赤壁之战等经典情节，通过皮影的形式展现了三国时期的英雄人物和历史事件。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 更多作品3 -->
+                    <div class="puppet-card bg-light rounded-lg overflow-hidden shadow-custom">
+                        <div class="h-56 overflow-hidden">
+                            <img src ="../图片素材/代表作品/武松打虎·.jpg" alt="《武松打虎》"
+                                class="w-full h-full object-cover transition-transform hover:scale-110 duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-title text-xl text-primary mb-2">《武松打虎》</h3>
+                            <p class="text-sm text-dark/60 mb-4">英雄故事剧</p>
+                            <p class="leading-relaxed">
+                                取材于《水浒传》，讲述了武松在景阳冈打死老虎的故事。湖湘皮影戏《武松打虎》以其精彩的武打场面和夸张的动作设计，深受观众喜爱。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="详细介绍.js"></script>
+    <script src="../公用样式/公用.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>光影相逢 云游皮影 -- Unity体验</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../TemplateData/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../公用样式/公用.css">
+    <link rel="stylesheet" href="unity体验.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;700;900&family=ZCOOL+XiaoWei&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#A62928',
+                        secondary: '#D4AF37',
+                        tertiary: '#8B4513',
+                        light: '#F5F0E6',
+                        dark: '#2D2320'
+                    },
+                    fontFamily: {
+                        art: ['"Ma Shan Zheng"', 'cursive'],
+                        title: ['"Noto Serif SC"', 'serif'],
+                        body: ['"ZCOOL XiaoWei"', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-light bg-pattern font-body text-dark antialiased">
+    <!-- 导航栏 -->
+    <nav id="main-nav" class="fixed w-full z-50 transition-all duration-300 bg-transparent">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#home" class="flex items-center space-x-2">
+                <i class="fa fa-film text-2xl text-primary"></i>
+                <span class="font-art text-2xl md:text-3xl text-primary">非遗皮影</span>
+            </a>
+
+            <!-- 桌面导航 -->
+            <div class="hidden md:flex space-x-8">
+                <a href="../首页/index.html" class="nav-link text-dark hover:text-primary transition-colors">首页</a>
+                <a href="../详细介绍/历史渊源.html" class="nav-link text-dark hover:text-primary transition-colors">历史渊源</a>
+                <div class="relative group" id="home-dropdown">
+                    <a href="../详细介绍/艺术特色.html" class="nav-link text-dark hover:text-primary transition-colors flex items-center">
+                        皮影双艺 <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                    </a>
+                    <div
+                        class="absolute top-full left-0 mt-2 w-48 bg-white/95 backdrop-blur-sm rounded-lg shadow-lg py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <a href="../详细介绍/艺术特色.html"
+                            class="block px-4 py-2 text-dark hover:bg-primary/10 hover:text-primary transition-colors dropdown-link card-link"
+                        >艺术特色</a>
+                        <a href="../详细介绍/皮影制作.html"
+                            class="block px-4 py-2 text-dark hover:bg-primary/10 hover:text-primary transition-colors dropdown-link card-link"
+                        >皮影制作</a>
+                    </div>
+                </div>
+                <div class="relative group" id="home-dropdown">
+                    <a href="../详细介绍/代表作品.html" class="nav-link text-dark hover:text-primary transition-colors flex items-center">
+                        皮影传承 <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                    </a>
+                    <div
+                        class="absolute top-full left-0 mt-2 w-48 bg-white/95 backdrop-blur-sm rounded-lg shadow-lg py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <a href="../详细介绍/代表作品.html"
+                            class="block px-4 py-2 text-dark hover:bg-primary/10 hover:text-primary transition-colors dropdown-link card-link">代表作品</a>
+                        <a href="../详细介绍/传承人.html"
+                            class="block px-4 py-2 text-dark hover:bg-primary/10 hover:text-primary transition-colors dropdown-link card-link">传承人</a>
+                    </div>
+                </div>
+                <a href="../unity体验/unity体验.html"
+                    class="nav-link text-dark hover:text-primary transition-colors">Unity体验</a>
+                <a href="../知识问答/知识问答.html" class="nav-link text-dark hover:text-primary transition-colors">知识问答</a>
+                <a href="../留言板/留言板.html" class="nav-link text-dark hover:text-primary transition-colors">留言板</a>
+
+            </div>
+
+            <!-- 移动端菜单按钮 -->
+            <button id="menu-toggle" class="md:hidden text-primary text-2xl focus:outline-none">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- 移动端导航菜单 -->
+        <div id="mobile-menu" class="md:hidden hidden bg-light/95 backdrop-blur-sm shadow-lg">
+            <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+                <a href="../首页/index.html"
+                    class="text-dark hover:text-primary py-2 border-b border-gray-200">首页</a>
+                <a href="../详细介绍/历史渊源.html" class="text-dark hover:text-primary py-2 border-b border-gray-200">历史渊源</a>
+                <a href="../详细介绍/艺术特色.html"
+                    class="text-dark hover:text-primary py-2 border-b border-gray-200">艺术特色</a>
+                <a href="../详细介绍/皮影制作.html"
+                    class="text-dark hover:text-primary py-2 border-b border-gray-200">皮影制作</a>
+                <a href="../详细介绍/代表作品.html"
+                    class="text-dark hover:text-primary py-2 border-b border-gray-200">代表作品</a>
+                <a href="../详细介绍/传承人.html"
+                    class="text-dark hover:text-primary py-2 border-b border-gray-200">传承人</a>
+                <a href="../unity体验/unity体验.html"
+                    class="text-dark hover:text-primary py-2 border-b border-gray-200">Unity体验</a>
+                <a href="../知识问答/知识问答.html" class="text-dark hover:text-primary py-2 border-b border-gray-200">知识问答</a>
+                <a href="../留言板/留言板.html" class="text-dark hover:text-primary py-2">留言板</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 首页大图 -->
+<div>
+    <div class="relative w-full h-[50vh] md:h-[100vh] overflow-hidden">
+        <img src = "../图片素材/unity.jpg" alt="中国皮影戏" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+            <div class="text-center text-white px-4">
+                <h1 class="font-art text-3xl md:text-5xl mb-2">中国皮影戏</h1>
+                <p class="text-lg md:text-xl">传承千年光影艺术，弘扬传统文化精髓</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Unity体验板块 -->
+    <section id="unity" class="py-20 bg-light relative"> <!-- 新增 relative -->
+        <!-- 背景图容器：层级 z-0，仅作为背景 -->
+        <div class="absolute inset-0 z-0">
+            <img src = "../图片素材/unity部分背景图.png" alt="皮影戏背景" class="w-full h-full object-cover opacity-40">
+        </div>
+        <div class="section-divider"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <h2 class="font-art text-[clamp(1.8rem,5vw,3rem)] text-primary text-center mb-6">Unity体验</h2>
+            <p class="text-center text-lg text-dark/70 max-w-3xl mx-auto mb-16">通过Unity技术，亲身体验皮影戏的魅力，感受传统文化与现代科技的完美结合
+            </p>
+
+            <div class="max-w-6xl mx-auto">
+                <div class="bg-white p-8 rounded-lg shadow-custom">
+                    <div class="grid md:grid-cols-2 gap-10 items-center">
+                        <div>
+                            <h3 class="font-title text-2xl text-primary mb-4">虚拟皮影戏体验</h3>
+                            <p class="mb-4 leading-relaxed">
+                                我们利用Unity游戏引擎技术，开发了这款虚拟皮影戏体验平台。您可以在这里亲自操纵皮影角色，感受传统皮影戏的表演乐趣。
+                            </p>
+                            <p class="mb-4 leading-relaxed">
+                                平台提供了多种经典皮影角色和场景，您可以轻触面板，了解皮影戏的历史知识。
+                            </p>
+                            <p class="mb-6 leading-relaxed">
+                                这项技术不仅让皮影戏的体验更加直观和有趣，也为传统文化的数字化保护和传承提供了新的可能性。
+                            </p>
+                            <div class="flex flex-wrap gap-4">
+                                <!-- 关键修改1：将href替换为Unity体验链接 -->
+                                <a href="https://poetic-quokka-88c34a.netlify.app" target="_blank"
+                                    class="px-6 py-3 bg-primary text-light rounded-md hover:bg-primary/90 transition-colors flex items-center">
+                                    <i class="fa fa-play-circle mr-2"></i> 开始体验
+                                </a>
+                            </div>
+                        </div>
+                        <div class="unity-container">
+                            <div class="unity-placeholder">
+                                <i class="fa fa-gamepad text-6xl mb-4"></i>
+                                <h4 class="text-xl font-title mb-2">皮影戏Unity体验平台</h4>
+                                <p class="text-center max-w-xs">点击下方按钮启动虚拟皮影戏体验</p>
+                                <!-- 关键修改2：将window.open目标链接替换为Unity体验链接，并删除多余闭合标签 -->
+                                <button class="unity-btn"
+                                    onclick="event.preventDefault(); window.open('https://tradiotionalshadowplay.netlify.app', '_blank');">
+                                    <i class="fa fa-play mr-2"></i> 启动体验
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8 mt-16">
+                    <div class="bg-white p-6 rounded-lg shadow-custom text-center">
+                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fa fa-users text-3xl text-primary"></i>
+                        </div>
+                        <h3 class="font-title text-xl text-primary mb-3">在线操作</h3>
+                        <p class="leading-relaxed">
+                            支持在线操作，可以漫游皮影戏展馆，体验传统皮影戏班的乐趣。
+                        </p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-custom text-center">
+                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fa fa-video-camera text-3xl text-primary"></i>
+                        </div>
+                        <h3 class="font-title text-xl text-primary mb-3">录制分享</h3>
+                        <p class="leading-relaxed">
+                            可以录制您的皮影戏表演，生成视频文件，方便分享到社交媒体，让更多人了解皮影戏艺术。
+                        </p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-custom text-center">
+                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fa fa-graduation-cap text-3xl text-primary"></i>
+                        </div>
+                        <h3 class="font-title text-xl text-primary mb-3">教学功能</h3>
+                        <p class="leading-relaxed">
+                            内置皮影戏相关UI知识，帮助用户逐步掌握皮影戏的表演技艺。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-divider-reverse"></div>
+    </section>
+
+    <script src="unity体验.js"></script>
+    <script src="../公用样式/公用.js"></script>
+</body>
+
+</html>
